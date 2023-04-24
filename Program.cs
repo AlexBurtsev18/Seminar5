@@ -123,65 +123,93 @@
 
 
 // HOMEWORK. 
-// Task 34: Задайте массив заполненный случайными положительными трёхзначными числами. 
+// Task 34++: Задайте массив заполненный случайными положительными трёхзначными числами. 
 // Напишите программу, которая покажет количество чётных чисел в массиве.
 
+// void FillArray(int[] collection)
+// {
+//     for (int i = 0; i < collection.Length; i++)
+//     {
+//         collection[i] = new Random().Next(100, 1000);
+//     }
+// }
 
-void FillArray(int[] collection)
-{
-    for (int i = 0; i < collection.Length; i++)
-    {
-        collection[i] = new Random().Next(100, 1000);
-    }
-}
+// void PrintArray(int[] collection)
+// {
+//     for (int i = 0; i < collection.Length; i++)
+//     {
+//         Console.Write(collection[i] + " ");
+//     }
+// }
 
-void PrintArray(int[] collection)
-{
-    for (int i = 0; i < collection.Length; i++)
-    {
-        Console.Write(collection[i] + " ");
-    }
-}
+// int[] array = new int[5];
+// int count = 0;
+// FillArray(array);
+// for(int z = 0; z < array.Length; z++)
+//     if(array[z] % 2 == 0) count++;
 
-int[] array = new int[5];
-int count = 0;
-for(int z = 0; z < array.Length; z++)
-    if(array[z] % 2 == 0) count++;
-
-FillArray(array);
-PrintArray(array);
-Console.WriteLine();
-Console.WriteLine($"всего {array.Length} чисел, {count} из них чётные");
+// PrintArray(array);
+// Console.WriteLine();
+// Console.WriteLine($"всего {array.Length} чисел, {count} из них чётные");
 
 
-// Console.WriteLine("Введите размер массива:  ");
+// Task++ 36: Задайте одномерный массив, заполненный случайными числами. 
+// Найдите сумму элементов, стоящих на нечётных позициях.
+
+// Console.WriteLine("Введите размер массива: ");
 // int size = Convert.ToInt32(Console.ReadLine());
 // int[] numbers = new int[size];
 // FillArrayRandomNumbers(numbers);
-// Console.WriteLine("массив: ");
+// Console.WriteLine("Массив: ");
 // PrintArray(numbers);
-// int count = 0;
+// int sum = 0;
+// for(int z = 1; z<numbers.Length; z+=2)
+//     sum+=numbers[z];
 
-// for (int z = 0; z < numbers.Length; z++)
-// if (numbers[z] % 2 == 0)
-// count++;
-
-// Console.WriteLine($"всего {numbers.Length} чисел, {count} из них чётные");
-
+// Console.WriteLine($"Всего {numbers.Length} элементов. Сумма чисел стоящих на нечетных индексах = {sum}");
 // void FillArrayRandomNumbers(int[] numbers)
 // {
-//     for(int i = 0; i < numbers.Length; i++)
+//     for(int i = 0; i<numbers.Length; i++)
 //     {
-//         numbers[i] = new Random().Next(100,1000);
+//         numbers[i] = new Random().Next(1,10);
 //     }
 // }
+
 // void PrintArray(int[] numbers)
 // {
-//     Console.Write("[ ");
-//     for(int i = 0; i < numbers.Length; i++)
+//     for(int i = 0; i<numbers.Length; i++)
 //     {
 //         Console.Write(numbers[i] + " ");
 //     }
-//     Console.Write("]");
 //     Console.WriteLine();
 // }
+
+// Task 38++: Задайте массив вещественных чисел. Найдите разницу между максимальным и минимальным элементов массива.
+
+void FillArrayRandom(double[] numbers)
+{
+    for(int i = 0; i<numbers.Length; i++)
+    numbers[i] = Convert.ToDouble(new Random().Next(100,1000));
+}
+double[] myArray = new double[7];
+
+void ShowArray(double[] array)
+{
+    for(int i = 0; i<array.Length; i++)
+    {
+        Console.Write(array[i] + " ");
+    }
+}
+FillArrayRandom(myArray);
+ShowArray(myArray);
+
+double min = myArray[0];
+double max = myArray[0];
+
+for(int i = 0; i<myArray.Length; i++)
+if(myArray[i] < min) min = myArray[i];
+for(int j = 0; j<myArray.Length; j++)
+if(myArray[j] > max) max = myArray[j];
+
+Console.WriteLine($"всего {myArray.Length} чисел. Максимальное значение = {max}, минимальное значение = {min}");
+Console.WriteLine($"Разница между максимальным и минимальным значением = {max - min}");
